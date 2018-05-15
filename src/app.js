@@ -10,12 +10,6 @@ const {
     sendJSONResponse
 } = require('./helpers');
 require('./models');
-
-if (config.env !== 'test') {
-    app.use(morgan('dev', {
-        stream: logger.stream
-    }));
-}
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -32,10 +26,6 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => { // eslint-disable-line
-    if (config.env !== 'test') {
-        logger.error(`Internal Server error ${err.message}`);
-        console.error('THIS IS ERR', err);
-    }
     if (err.isBoom) {
         const {
             message
@@ -48,7 +38,7 @@ app.use((err, req, res, next) => { // eslint-disable-line
     }
 });
 
-server.listen(config.port, () => console.log('APP RUNNING ON ', config.port));
+app.listen(config.port, () => console.log('APP RUNNING ON ', config.port));
 
 module.exports = {
     app

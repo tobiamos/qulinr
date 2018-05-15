@@ -2,7 +2,7 @@
   "name": "qulinr",
   "version": "1.0.0",
   "description": "A slack bot and restful api for chefs in a tech workspace",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,9 @@
     "express",
     "slack"
   ],
+  "engines": {
+    "node": "9.0.0"
+  },
   "author": "Amos Tobi",
   "license": "MIT",
   "bugs": {

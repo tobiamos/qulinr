@@ -8,9 +8,9 @@ const { botToken, botName } = require('../config');
 
 const Bot = new SlackBot({
     token: botToken,
-    name: botName
+    name: 'Qulinr',
 });
-
+//https://ibb.co/bBwA1J
 //bot.postMessageToChannel('qulinr-app', 'Paul Make Sure you do freedom');
 module.exports.createMenu = async (req, res) => {
     const { foodType, foodMenu, timeEstimate } = req.body;
@@ -21,8 +21,11 @@ module.exports.createMenu = async (req, res) => {
     const token = randomBytes(16).toString('hex')
     menu.token = token;
     await menu.save();
-    const data = `${foodType}- ${foodMenu}- would be ready in ${timeEstimate}`;
-    Bot.postMessageToChannel(channels.qulinrapp, data);
+    const params = {
+        icon_emoji: ':qulinr:'
+    };
+    const data = `*${foodType}*- ${foodMenu}- would be ready in ${timeEstimate}`;
+    Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, { data:token, message: 'Food Notification created'} );
 };
 
