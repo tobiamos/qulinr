@@ -1,0 +1,25 @@
+{
+  "name": "qulinr",
+  "version": "1.0.0",
+  "description": "A slack bot and restful api for chefs in a tech workspace",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiamos/qulinr.git"
+  },
+  "keywords": [
+    "Node",
+    "Mongodb",
+    "express",
+    "slack"
+  ],
+  "author": "Amos Tobi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiamos/qulinr/issues"
+  },
+  "homepage": "https://github.com/tobiamos/qulinr#readme"
+}
