@@ -1,30 +1,55 @@
-var SlackBot = require('slackbots');
+require('dotenv').config({
+    path: '.env'
+});
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const config = require('./config');
+const morgan = require('morgan');
+const {
+    sendJSONResponse
+} = require('./helpers');
+require('./models');
 
-// create a bot
-var bot = new SlackBot({
-    token: 'xoxb-259732733398-363436769185-3gD96ieIWcGuEBFXsKcNjKRd', // Add a bot https://my.slack.com/services/new/bot and put the token
-    name: 'qulinr'
+if (config.env !== 'test') {
+    app.use(morgan('dev', {
+        stream: logger.stream
+    }));
+}
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json({
+    limit: '52428800'
+}));
+const apiRoutes = require('./routes');
+app.use('/api/v1', apiRoutes);
+
+app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-bot.on('start', function () {
-    // more information about additional params https://api.slack.com/methods/chat.postMessage
-    var params = {
-        icon_emoji: ':cat:'
-    };
-
-    // define channel, where bot exist. You can adjust it there https://my.slack.com/services 
-    bot.postMessageToChannel('qulinr-app', 'Paul Make Sure you do freedom');
-
-    // define existing username instead of 'user_name'
-    // bot.postMessageToUser('user_name', 'meow!', params);
-
-    // If you add a 'slackbot' property, 
-    // you will post to another user's slackbot channel instead of a direct message
-    // bot.postMessageToUser('user_name', 'meow!', {
-    //     'slackbot': true,
-    //     icon_emoji: ':cat:'
-    // });
-
-    // define private group instead of 'private_group', where bot exist
-    // bot.postMessageToGroup('private_group', 'meow!', params);
+app.use((err, req, res, next) => { // eslint-disable-line
+    if (config.env !== 'test') {
+        logger.error(`Internal Server error ${err.message}`);
+        console.error('THIS IS ERR', err);
+    }
+    if (err.isBoom) {
+        const {
+            message
+        } = err.data[0];
+        sendJSONResponse(res, err.output.statusCode, { data:null, message});
+    } else if (err.status === 404) {
+        sendJSONResponse(res, err.status, {  data:null, message: 'Not Found'});
+    } else {
+        sendJSONResponse(res, 500, { data:null, message: 'Something went wrong'});
+    }
 });
+
+server.listen(config.port, () => console.log('APP RUNNING ON ', config.port));
+
+module.exports = {
+    app
+};
