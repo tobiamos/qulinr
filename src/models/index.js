@@ -19,17 +19,17 @@ if (config.env === 'development') {
 }
 
 mongoose.connection.on('connected', () => {
-    winston.info(chalk.blue('Connected to '), DBURI);
+    winston.info('Connected to ', DBURI);
 });
 
 mongoose.connection.on('error', (err) => {
-    winston.info(chalk.error('ERRROR CONNECTING'), {
+    winston.info('ERRROR CONNECTING', {
         err
     });
 });
 
 mongoose.connection.on('disconnected', () => {
-    winston.info(chalk.error('Disconnected From '), DBURI);
+    winston.info('Disconnected From ', DBURI);
 });
 
 require('./menu');
