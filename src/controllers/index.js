@@ -10,6 +10,9 @@ const Bot = new SlackBot({
     token: botToken,
     name: 'Qulinr',
 });
+const params = {
+    icon_emoji: ':qulinr:'
+};
 //https://ibb.co/bBwA1J
 //bot.postMessageToChannel('qulinr-app', 'Paul Make Sure you do freedom');
 module.exports.createMenu = async (req, res) => {
@@ -21,10 +24,10 @@ module.exports.createMenu = async (req, res) => {
     const token = randomBytes(16).toString('hex')
     menu.token = token;
     await menu.save();
-    const params = {
-        icon_emoji: ':qulinr:'
-    };
-    const data = `*${foodType}*- ${foodMenu}- would be ready in ${timeEstimate}`;
+    const data = `
+    *${foodType}* 
+    *${foodMenu}* 
+     would be ready in *${timeEstimate}*`;
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, { data:token, message: 'Food Notification created'} );
 };
@@ -35,6 +38,6 @@ module.exports.foodIsReady = async ( req, res ) => {
     const menu = await Menu.findOne({ token });
     if(!menu) return sendJSONResponse(res, 400, { data: null, message: 'Food Entry Not Found!'});
     data = `${menu.foodType}-${menu.foodMenu} is Ready!`;
-    Bot.postMessageToChannel(channels.qulinrapp, data);
+    Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, {data:null, message: 'Food Notification Sent'});
 }
