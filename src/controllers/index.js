@@ -24,10 +24,10 @@ module.exports.createMenu = async (req, res) => {
     const token = randomBytes(16).toString('hex')
     menu.token = token;
     await menu.save();
-    const data = `
-    *${foodType}* 
-    *${foodMenu}* 
-     would be ready in *${timeEstimate}*`;
+    const data = 
+`*${toTitleCase(foodType)}*  
+*${toTitleCase(foodMenu)}* 
+would be ready in *${timeEstimate}*`;
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, { data:token, message: 'Food Notification created'} );
 };
@@ -37,7 +37,16 @@ module.exports.foodIsReady = async ( req, res ) => {
     const { token } = req.body;
     const menu = await Menu.findOne({ token });
     if(!menu) return sendJSONResponse(res, 400, { data: null, message: 'Food Entry Not Found!'});
-    data = `${menu.foodType}-${menu.foodMenu} is Ready!`;
+    data = 
+`*${toTitleCase(menu.foodType)}*
+ *${toTitleCase(menu.foodMenu)}*
+  *is Ready!*`;
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, {data:null, message: 'Food Notification Sent'});
+}
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
