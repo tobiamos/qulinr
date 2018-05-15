@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 const { sendJSONResponse } = require('../helpers');
 const Menu = mongoose.model('Menu');
+const { channels } = require('../utils');
 const { randomBytes } = require('crypto');
+const SlackBot = require('slackbots');
+
+const Bot = new SlackBot({
+    
+})
 
 module.exports.createMenu = async (req, res) => {
     const { foodType, foodMenu, timeEstimate } = req.body;
