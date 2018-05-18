@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { randomBytes } = require('crypto');
+const timeTable = require('./timetable.json')
 const SlackBot = require('slackbots');
 const { sendJSONResponse } = require('../helpers');
 const Menu = mongoose.model('Menu');
@@ -43,6 +44,20 @@ module.exports.foodIsReady = async ( req, res ) => {
   *is Ready!*`;
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, {data:null, message: 'Food Notification Sent'});
+};
+
+module.exports.getFullTimeTable = (req, res) => {
+    const fullTimeTable = timeTable;
+    if(!fullTimeTable) return sendJSONResponse(res, 404, {data:null, message: 'Time table not found'});
+    return sendJSONResponse(res, 200, {data:timeTable, message: 'Timetable found'} );
+};
+
+module.exports.getTimeTableByDay = (req, res) => {
+    const  { day } = req.params;
+    const result = timeTable[day.toLowerCase()];
+    if(!result)return sendJSONResponse(res, 404, {data:null, message: `Timetable for ${day} not found`});
+    return sendJSONResponse(res, 200, {data:result, message: `Timetable for ${day} fetched!`});
+
 }
 
 function toTitleCase(str) {

@@ -1,0 +1,37 @@
+{
+    "monday": {
+        "breakfast": "Potato & Corned Sauce",
+        "lunch": "Vegetable Soup with Chicken, Poundo Yam (Semovita)",
+        "dinner": "Jollof Spaghetti & Turkey"
+    },
+    "tuesday": {
+        "breakfast": "Pap & Moi Moi",
+        "lunch": "Jollof Rice & Coleslaw & Beef",
+        "dinner": "Ogbono with Beef & Poundo Yam"
+    },
+    "wednesday": {
+        "breakfast": "Bread, Tea & Fried Egg",
+        "lunch": "Egusi Soup with Turkey & Poundo Yam",
+        "dinner": "Jollof Spaghetti & Beef"
+    },
+    "thursday": {
+        "breakfast": "Potato Chips, Fried Yam and Fried Plantain",
+        "lunch": "Rice, Beans and Turkey Stew",
+        "dinner": "Vegetable Soup & Turkey"
+    },
+    "friday": {
+        "breakfast": " Boiled Yam and Sauce ( Fish and Corned Beef)",
+        "lunch": "White Rice and Chicken Stew",
+        "dinner": "TGIF (PIZZA AND ICE CREAM)"
+    },
+    "saturday": {
+        "breakfast": "Akara & (Pap or Custard)",
+        "lunch": "Indomie and Egg",
+        "dinner": "Fried Rice and Shrimps with Beef Sauce"
+    },
+    "sunday": {
+        "breakfast": "Cereal",
+        "lunch": "Fried Plantain & Egg Sauce",
+        "dinner": "Fried Rice and Gizzard"
+    }
+}

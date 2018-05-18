@@ -18,4 +18,7 @@ expressValidator(validateFood.validateFoodIsReady),
 catchErrors(foodController.foodIsReady)
 );
 
+router.get('/timetable', catchErrors(foodController.getFullTimeTable));
+
+router.get('/timetable/:day', catchErrors(foodController.getTimeTableByDay));
 module.exports = router;
