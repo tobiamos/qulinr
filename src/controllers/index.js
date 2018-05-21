@@ -18,7 +18,6 @@ const params = {
     attachments: [{
         "fallback": "Required plain-text summary of the attachment.",
         "color": "#2eb886",
-        "pretext": "Optional text that appears above the attachment block",
         "author_name": "Qulinr",
         "text": "Optional text that appears within the attachment",
         "fields": [{
@@ -28,9 +27,7 @@ const params = {
         }],
         "image_url": "http://gokada.ng/assets/1.jpg",
         "thumb_url": "http://gokada.ng/assets/1.jpg",
-        "footer": "Slack API",
-        "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
-        "ts": 123456789
+        "ts": getCurrentTimeStamp()
     }]
 };
 //https://ibb.co/bBwA1J
@@ -84,3 +81,8 @@ function toTitleCase(str) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
+
+function getCurrentTimeStamp() {
+    return Math.floor(new Date().getTime() / 1000);
+};
+
