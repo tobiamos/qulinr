@@ -38,6 +38,16 @@ module.exports.createMenu = async (req, res) => {
 `*${toTitleCase(foodType)}*  
 *${toTitleCase(foodMenu)}* 
 would be ready in *${timeEstimate}*`;
+    const params = {
+        icon_emoji: ':qulinr:',
+        attachments: [{
+            "fallback": "Required plain-text summary of the attachment.",
+            "color": "#2eb886",
+            "image_url": getFoodImage(menu.foodType.toLowerCase()),
+            "thumb_url": getFoodImage(menu.foodType.toLowerCase()),
+            "ts": getCurrentTimeStamp()
+        }]
+    };
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, { data:token, message: 'Food Notification created'} );
 };
@@ -51,6 +61,16 @@ module.exports.foodIsReady = async ( req, res ) => {
 `*${toTitleCase(menu.foodType)}*
  *${toTitleCase(menu.foodMenu)}*
   *is Ready!*`;
+  const params = {
+      icon_emoji: ':qulinr:',
+      attachments: [{
+          "fallback": "Required plain-text summary of the attachment.",
+          "color": "#2eb886",
+          "image_url":getFoodImage(menu.foodType.toLowerCase()) ,
+          "thumb_url":getFoodImage(menu.foodType.toLowerCase()) ,
+          "ts": getCurrentTimeStamp()
+      }]
+  };
     Bot.postMessageToChannel(channels.qulinrapp, data, params);
     sendJSONResponse(res, 200, {data:null, message: 'Food Notification Sent'});
 };
@@ -79,3 +99,11 @@ function getCurrentTimeStamp() {
     return Math.floor(new Date().getTime() / 1000);
 };
 
+function getFoodImage(type){
+    const object = {
+        breakfast: 'http://gokada.ng/assets/1.jpg',
+        lunch: 'http://gokada.ng/assets/lunch-card.jpg',
+        dinner: 'http://gokada.ng/assets/dinner-card.jpg'
+    };
+    return object[type];
+}
