@@ -30,8 +30,8 @@ const params = {
             "value": "High",
             "short": false
         }],
-        "image_url": "http://my-website.com/path/to/image.jpg",
-        "thumb_url": "http://example.com/path/to/thumb.png",
+        "image_url": "https://imgur.com/AO668Q3",
+        "thumb_url": "https://imgur.com/AO668Q3",
         "footer": "Slack API",
         "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         "ts": 123456789
