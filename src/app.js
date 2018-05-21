@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const app = express();
 const config = require('./config');
 const morgan = require('morgan');
+const path = require('path');
 const {
     sendJSONResponse
 } = require('./helpers');
 require('./models');
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -18,6 +20,7 @@ app.use(bodyParser.json({
 }));
 const apiRoutes = require('./routes');
 app.use('/api/v1', apiRoutes);
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

@@ -7,12 +7,17 @@ const Menu = mongoose.model('Menu');
 const { channels } = require('../utils');
 const { botToken, botName } = require('../config');
 
+//https://imgur.com/AO668Q3 - breakfast
+
 const Bot = new SlackBot({
     token: botToken,
     name: 'Qulinr',
 });
 const params = {
-    icon_emoji: ':qulinr:'
+    icon_emoji: ':qulinr:',
+    attachments: [{
+        image: 'https://imgur.com/AO668Q3'
+    }]
 };
 //https://ibb.co/bBwA1J
 //bot.postMessageToChannel('qulinr-app', 'Paul Make Sure you do freedom');
