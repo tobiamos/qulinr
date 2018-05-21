@@ -18,11 +18,6 @@ const params = {
     attachments: [{
         "fallback": "Required plain-text summary of the attachment.",
         "color": "#2eb886",
-        "fields": [{
-            "title": "Priority",
-            "value": "High",
-            "short": false
-        }],
         "image_url": "http://gokada.ng/assets/1.jpg",
         "thumb_url": "http://gokada.ng/assets/1.jpg",
         "ts": getCurrentTimeStamp()
