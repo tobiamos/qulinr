@@ -17,7 +17,7 @@ const params = {
     icon_emoji: ':qulinr:',
     attachments: [{
         "fallback": "BREAK FAST IMAGE LOGO.",
-        "text": "BREAK FAST IMAGE LOGO",
+        "text": "BREAK-FAST-IMAGE-LOGO",
         "image_url": "https://imgur.com/AO668Q3",
         "thumb_url": "https://imgur.com/AO668Q3"
     }]
