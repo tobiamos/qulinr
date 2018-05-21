@@ -16,7 +16,10 @@ const Bot = new SlackBot({
 const params = {
     icon_emoji: ':qulinr:',
     attachments: [{
-        image: 'https://imgur.com/AO668Q3'
+        "fallback": "BREAK FAST IMAGE LOGO.",
+        "text": "BREAK FAST IMAGE LOGO",
+        "image_url": "https://imgur.com/AO668Q3",
+        "thumb_url": "https://imgur.com/AO668Q3"
     }]
 };
 //https://ibb.co/bBwA1J
