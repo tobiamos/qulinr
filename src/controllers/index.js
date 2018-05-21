@@ -30,8 +30,8 @@ const params = {
             "value": "High",
             "short": false
         }],
-        "image_url": "https://hips.hearstapps.com/ghk.h-cdn.co/assets/15/12/1426623863-love-toast.jpg",
-        "thumb_url": "https://hips.hearstapps.com/ghk.h-cdn.co/assets/15/12/1426623863-love-toast.jpg",
+        "image_url": "https://gokada.slack.com/files/U8TMA78F8/FASKJEK32/lunch-card.jpg",
+        "thumb_url": "https://gokada.slack.com/files/U8TMA78F8/FASKJEK32/lunch-card.jpg",
         "footer": "Slack API",
         "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         "ts": 123456789
