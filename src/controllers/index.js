@@ -18,8 +18,6 @@ const params = {
     attachments: [{
         "fallback": "Required plain-text summary of the attachment.",
         "color": "#2eb886",
-        "author_name": "Qulinr",
-        "text": "Optional text that appears within the attachment",
         "fields": [{
             "title": "Priority",
             "value": "High",
