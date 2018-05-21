@@ -30,8 +30,8 @@ const params = {
             "value": "High",
             "short": false
         }],
-        "image_url": "https://gokada.slack.com/files/U8TMA78F8/FASKJEK32/lunch-card.jpg",
-        "thumb_url": "https://gokada.slack.com/files/U8TMA78F8/FASKJEK32/lunch-card.jpg",
+        "image_url": "http://gokada.ng/assets/1.jpg",
+        "thumb_url": "http://gokada.ng/assets/1.jpg",
         "footer": "Slack API",
         "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         "ts": 123456789
