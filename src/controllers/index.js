@@ -35,7 +35,7 @@ module.exports.createMenu = async (req, res) => {
     menu.token = token;
     await menu.save();
     const data = 
-`*${toTitleCase(foodType)}*  
+` @here *${toTitleCase(foodType)}*  
 *${toTitleCase(foodMenu)}* 
 would be ready in *${timeEstimate}*`;
     const params = {
@@ -58,7 +58,7 @@ module.exports.foodIsReady = async ( req, res ) => {
     const menu = await Menu.findOne({ token });
     if(!menu) return sendJSONResponse(res, 400, { data: null, message: 'Food Entry Not Found!'});
     data = 
-`*${toTitleCase(menu.foodType)}*
+`* @here ${toTitleCase(menu.foodType)}*
  *${toTitleCase(menu.foodMenu)}*
   *is Ready!*`;
   const params = {
