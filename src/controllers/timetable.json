@@ -1,37 +1,37 @@
 {
     "monday": {
-        "breakfast": "Potato & Corned Sauce",
-        "lunch": "Vegetable Soup with Chicken, Poundo Yam (Semovita)",
-        "dinner": "Jollof Spaghetti & Turkey"
+        "breakfast": "Bread, Tea  & Egg",
+        "lunch": "White Rice with Curry Sauce (Beef Sauce)",
+        "dinner": "Egusi, Chicken with Semovita (Eba)"
     },
     "tuesday": {
-        "breakfast": "Pap & Moi Moi",
-        "lunch": "Jollof Rice & Coleslaw & Beef",
-        "dinner": "Ogbono with Beef & Poundo Yam"
+        "breakfast": "Akara with Custard (Pap)",
+        "lunch": "Yam Porridge or Potato Porridge",
+        "dinner": "Jollof Rice with Turkey"
     },
     "wednesday": {
-        "breakfast": "Bread, Tea & Fried Egg",
-        "lunch": "Egusi Soup with Turkey & Poundo Yam",
-        "dinner": "Jollof Spaghetti & Beef"
+        "breakfast": "Yam with Egg Sauce",
+        "lunch": "Spagehtti with Gizzard Sauce",
+        "dinner": "Fried Rice with Chicken"
     },
     "thursday": {
-        "breakfast": "Potato Chips, Fried Yam and Fried Plantain",
-        "lunch": "Rice, Beans and Turkey Stew",
-        "dinner": "Vegetable Soup & Turkey"
+        "breakfast": "Bread with Tea or Red Beans",
+        "lunch": "Poundo Yam with Ogbono ( Okro)",
+        "dinner": "Jollof Rice with Beef Sauce"
     },
     "friday": {
         "breakfast": " Boiled Yam and Sauce ( Fish and Corned Beef)",
-        "lunch": "White Rice and Chicken Stew",
-        "dinner": "TGIF (PIZZA AND ICE CREAM)"
+        "lunch": "Jollof Rice and Beef",
+        "dinner": "Okro Soup and Eba"
     },
     "saturday": {
-        "breakfast": "Akara & (Pap or Custard)",
-        "lunch": "Indomie and Egg",
-        "dinner": "Fried Rice and Shrimps with Beef Sauce"
+        "breakfast": "Moi Moi and Egg with Pap (Custard) ",
+        "lunch": "Noodles",
+        "dinner": "Jollof Rice and Chicken Stew"
     },
     "sunday": {
         "breakfast": "Cereal",
         "lunch": "Fried Plantain & Egg Sauce",
-        "dinner": "Fried Rice and Gizzard"
+        "dinner": "White Rice and Turkey Stew"
     }
 }
