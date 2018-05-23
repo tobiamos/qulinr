@@ -42,13 +42,13 @@ would be ready in *${timeEstimate}*`;
         icon_emoji: ':qulinr:',
         attachments: [{
             "fallback": "Required plain-text summary of the attachment.",
-            "color": "#2eb886",
+            "color": "##1E1B43",
             "image_url": getFoodImage(menu.foodType.toLowerCase()),
             "thumb_url": getFoodImage(menu.foodType.toLowerCase()),
             "ts": getCurrentTimeStamp()
         }]
     };
-    Bot.postMessageToChannel(channels.qulinrapp, data, params);
+    Bot.postMessageToChannel(channels.general, data, params);
     sendJSONResponse(res, 200, { data:token, message: 'Food Notification created'} );
 };
 
@@ -71,7 +71,7 @@ module.exports.foodIsReady = async ( req, res ) => {
           "ts": getCurrentTimeStamp()
       }]
   };
-    Bot.postMessageToChannel(channels.qulinrapp, data, params);
+    Bot.postMessageToChannel(channels.general, data, params);
     sendJSONResponse(res, 200, {data:null, message: 'Food Notification Sent'});
 };
 
