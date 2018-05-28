@@ -42,7 +42,7 @@ would be ready in *${timeEstimate}*`;
         icon_emoji: ':qulinr:',
         attachments: [{
             "fallback": "Required plain-text summary of the attachment.",
-            "color": "##1E1B43",
+            "color": "##1e1b43",
             "image_url": getFoodImage(menu.foodType.toLowerCase()),
             "thumb_url": getFoodImage(menu.foodType.toLowerCase()),
             "ts": getCurrentTimeStamp()
@@ -58,7 +58,7 @@ module.exports.foodIsReady = async ( req, res ) => {
     const menu = await Menu.findOne({ token });
     if(!menu) return sendJSONResponse(res, 400, { data: null, message: 'Food Entry Not Found!'});
     data = 
-`* @here ${toTitleCase(menu.foodType)}*
+` @here *${toTitleCase(menu.foodType)}*
  *${toTitleCase(menu.foodMenu)}*
   *is Ready!*`;
   const params = {
